@@ -1,0 +1,19 @@
+server:
+  port: 9009
+spring:
+  application:
+    name: tensquare-sms
+  rabbitmq:
+    host: 52.175.71.154
+aliyun:
+  sms:
+    accessKeyId: LTAIxo9ZQy1tSHYL
+    accessKeySecret: IawJXWPqlMvG69lzCcEOBoyvGvwE5G
+    template_code: SMS_94700095
+    sign_name: 李腾飞自己做短信测试
+eureka:
+  client:
+    service-url: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer‐ip‐address: true
