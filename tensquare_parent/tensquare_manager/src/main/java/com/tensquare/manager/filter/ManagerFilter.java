@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class ManagerFilter extends ZuulFilter {
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
     /**
      * 在请求前或者后执行
      * pre  post
@@ -47,20 +50,19 @@ public class ManagerFilter extends ZuulFilter {
      * @return
      * @throws ZuulException
      */
-    @Autowired
-    private JwtUtil jwtUtil;
-
     @Override
     public Object run() throws ZuulException {
         System.out.println("经过了后台过滤器");
         RequestContext requestContext = RequestContext.getCurrentContext();
+        // request域
         HttpServletRequest request = requestContext.getRequest();
-        //放行网关的首次转发请求
+        // 放行网关的首次转发请求
         if (request.getMethod().equals("OPTIONS"))
             return null;
-        //放行登陆请求
+        // 放行登陆请求
         if (request.getRequestURI().indexOf("login") > 0)
             return null;
+        // 得到头信息
         String header = request.getHeader("Authorization");
         if (header != null && !"".equals(header)) {
             if (header.startsWith("Bearer ")) {
@@ -69,11 +71,12 @@ public class ManagerFilter extends ZuulFilter {
                     Claims claims = jwtUtil.parseJWT(token);
                     String roles = (String) claims.get("roles");
                     if ("admin".equals(roles)) {
-                        //头信息转发并放行
+                        // 头信息转发并放行
                         requestContext.addZuulRequestHeader("Authorization", header);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    // 终止运行
                     requestContext.setSendZuulResponse(false);
                 }
             }
