@@ -1,6 +1,5 @@
 server:
   port: 12000
-
 spring:
   application:
     name: tensquare-config
@@ -8,4 +7,4 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/strugg1e/tensquare_dev.git
+          uri: https://github.com/woshiamiaojiang/tensquare-config.git

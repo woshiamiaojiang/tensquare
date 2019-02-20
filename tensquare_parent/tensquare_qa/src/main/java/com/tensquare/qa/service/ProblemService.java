@@ -117,9 +117,7 @@ public class ProblemService {
      * @return
      */
     private Specification<Problem> createSpecification(Map searchMap) {
-
         return new Specification<Problem>() {
-
             @Override
             public Predicate toPredicate(Root<Problem> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> predicateList = new ArrayList<Predicate>();
@@ -153,10 +151,8 @@ public class ProblemService {
                 }
 
                 return cb.and(predicateList.toArray(new Predicate[predicateList.size()]));
-
             }
         };
-
     }
 
 }

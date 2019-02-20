@@ -6,6 +6,10 @@ import com.netflix.zuul.exception.ZuulException;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 网站前台的token转发
+ * 我们现在在过滤器中接收header，转发给微服务
+ */
 public class WebFilter extends ZuulFilter {
 
     /**

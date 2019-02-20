@@ -1,11 +1,17 @@
 server:
   port: 12000
-
 spring:
   application:
-    name: tensquare-config
+    name: tensquare-config #集中配置组件SpringCloudConfig
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/strugg1e/tensquare_dev.git
+          uri: https://github.com/woshiamiaojiang/tensquare-config.git
+  rabbitmq:
+    host: 52.175.71.154
+management: #暴露触发消息总线的地址
+  endpoints:
+    web:
+      exposure:
+        include: bus‐refresh

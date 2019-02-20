@@ -18,4 +18,5 @@ public class BaseExceptionHandler {
         e.printStackTrace();        
         return new Result(false, StatusCode.ERROR, "执行出错");
     }
+
 }

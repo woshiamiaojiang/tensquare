@@ -21,4 +21,5 @@ public interface ProblemDao extends JpaRepository<Problem, String>, JpaSpecifica
 
     @Query(value = "SELECT * FROM tb_problem tp, tb_pl WHERE id = problemid AND labelid = ? AND reply = 0 ORDER BY createtime DESC", nativeQuery = true)
     Page<Problem> waitList(String labelid, Pageable pageable);
+
 }

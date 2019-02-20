@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ParseJwtTest {
+
     public static void main(String[] args) {
         String compactJws = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiLlsI_nmb0iLCJpYXQiOjE1NTAzNzY5MDgsImV4cCI6MTU1MDM3NzAyOCwicm9sZXMiOiJhZG1pbiIsImxvZ28iOiJsb2dvLnBuZyJ9.fM6XvAclhx52Vt3GTFsS6DVNYWkzbScyH-6DDV1Q8Ro";
         Claims claims = Jwts.parser().setSigningKey("itcast").parseClaimsJws(compactJws).getBody();
@@ -19,4 +20,5 @@ public class ParseJwtTest {
         System.out.println("过期时间:" + sdf.format(claims.getExpiration()));
         System.out.println("当前时间:" + sdf.format(new Date()));
     }
+
 }

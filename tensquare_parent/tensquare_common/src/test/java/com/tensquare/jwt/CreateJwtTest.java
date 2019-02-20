@@ -7,6 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 
 public class CreateJwtTest {
+
     public static void main(String[] args) {
         //为了方便测试，我们将过期时间设置为2分钟
         long now = System.currentTimeMillis();//当前时间
@@ -20,4 +21,5 @@ public class CreateJwtTest {
                 .claim("logo", "logo.png");
         System.out.println(builder.compact());
     }
+
 }

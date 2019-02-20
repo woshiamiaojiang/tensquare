@@ -7,6 +7,7 @@ import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,7 @@ public class ProblemController {
 	@Autowired
 	private HttpServletRequest request;
 
+	@Qualifier("baseClientImpl")
 	@Autowired
 	private BaseClient baseclient;
 

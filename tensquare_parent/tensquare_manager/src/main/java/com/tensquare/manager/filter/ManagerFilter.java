@@ -10,6 +10,9 @@ import util.JwtUtil;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * tensquare_manager的过滤器, 因为是管理后台使用，所以需要在过滤器中对token进行验证
+ */
 @Component
 public class ManagerFilter extends ZuulFilter {
 
@@ -23,6 +26,7 @@ public class ManagerFilter extends ZuulFilter {
      */
     @Override
     public String filterType() {
+        // 前置过滤器
         return "pre";
     }
 
@@ -32,6 +36,7 @@ public class ManagerFilter extends ZuulFilter {
      */
     @Override
     public int filterOrder() {
+        // 优先级，数字越大，优先级越低
         return 0;
     }
 
@@ -41,6 +46,7 @@ public class ManagerFilter extends ZuulFilter {
      */
     @Override
     public boolean shouldFilter() {
+        // 过滤器开关，true表示开启
         return true;
     }
 
@@ -80,7 +86,9 @@ public class ManagerFilter extends ZuulFilter {
                     requestContext.setSendZuulResponse(false);
                 }
             }
+            // 终止运行
             requestContext.setSendZuulResponse(false);
+            // http状态码
             requestContext.setResponseStatusCode(403);
             requestContext.setResponseBody("权限不足");
             requestContext.getResponse().setContentType("text/html;charset=utf-8");
