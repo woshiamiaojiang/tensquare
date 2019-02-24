@@ -33,7 +33,7 @@
     </dependencies>
 
     <build>
-        <finalName>tensquare_eureka</finalName>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
