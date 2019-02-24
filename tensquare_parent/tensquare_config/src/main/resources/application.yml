@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://github.com/woshiamiaojiang/tensquare-config.git
   rabbitmq:
-    host: 52.175.71.154
+    host: 40.83.100.28
 management: #暴露触发消息总线的地址
   endpoints:
     web:
