@@ -24,6 +24,7 @@ public class LabelService {
 
     @Autowired
     private LabelDao labelDao;
+
     @Autowired
     private IdWorker idWorker;
 
@@ -60,11 +61,11 @@ public class LabelService {
             @Override
             public Predicate toPredicate(Root<Label> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> list = new ArrayList<>();
-                if(label.getLabelname() != null && !"".equals(label.getLabelname())) {
+                if (label.getLabelname() != null && !"".equals(label.getLabelname())) {
                     Predicate pre = cb.like(root.get("labelname").as(String.class), "%" + label.getLabelname() + "%");// where labelname like "%小明%"
                     list.add(pre);
                 }
-                if(label.getState() != null && !"".equals(label.getState())) {
+                if (label.getState() != null && !"".equals(label.getState())) {
                     Predicate pre = cb.equal(root.get("state").as(String.class), label.getState());// where state = "1"
                     list.add(pre);
                 }
@@ -88,11 +89,11 @@ public class LabelService {
             @Override
             public Predicate toPredicate(Root<Label> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> list = new ArrayList<>();
-                if(label.getLabelname() != null && !"".equals(label.getLabelname())) {
+                if (label.getLabelname() != null && !"".equals(label.getLabelname())) {
                     Predicate pre = cb.like(root.get("labelname").as(String.class), "%" + label.getLabelname() + "%");// where labelname like "%小明%"
                     list.add(pre);
                 }
-                if(label.getState() != null && !"".equals(label.getState())) {
+                if (label.getState() != null && !"".equals(label.getState())) {
                     Predicate pre = cb.equal(root.get("state").as(String.class), label.getState());// where state = "1"
                     list.add(pre);
                 }
