@@ -46,6 +46,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
+                <!-- Finchley.M9版本部署到Docker镜像上会报错，换成Release版本 -->
                 <version>Finchley.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
