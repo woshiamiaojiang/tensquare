@@ -26,7 +26,7 @@
     </dependencies>
 
     <build>
-        <finalName>app</finalName>
+        <finalName>tensquare_eureka</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -38,7 +38,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>40.83.100.28:5000/${project.artifactId}:${project.version}</imageName>
+                    <imageName>52.183.23.78:5000/${project.artifactId}:${project.version}</imageName>
                     <baseImage>jdk1.8</baseImage>
                     <entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
@@ -48,7 +48,7 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                    <dockerHost>http://40.83.100.28:2375</dockerHost>
+                    <dockerHost>http://52.183.23.78:2375</dockerHost>
                 </configuration>
             </plugin>
         </plugins>
