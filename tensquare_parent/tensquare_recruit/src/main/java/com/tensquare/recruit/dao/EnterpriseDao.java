@@ -11,5 +11,7 @@ import java.util.List;
  * @author Administrator
  */
 public interface EnterpriseDao extends JpaRepository<Enterprise, String>, JpaSpecificationExecutor<Enterprise> {
+
     List<Enterprise> findByIshot(String ishot);  //where ishot = ?
+
 }
