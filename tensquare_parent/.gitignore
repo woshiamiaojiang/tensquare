@@ -31,3 +31,22 @@ gen### Java template
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+/tensquare_article/target/
+/tensquare_base/target/
+/tensquare_common/target/
+/tensquare_config/target/
+/tensquare_eureka/target/
+/tensquare_friend/target/
+/tensquare_gathering/target/
+/tensquare_manager/target/
+/tensquare_qa/target/
+/tensquare_recruit/target/
+/tensquare_search/target/
+/tensquare_sms/target/
+/tensquare_spit/target/
+/tensquare_user/target/
+/tensquare_web/target/
+/tensquare_manager/target/
+/tensquare_user/target/
+/tensquare_web/target/
+/tensquare_config/target/
