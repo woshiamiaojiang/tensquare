@@ -1,7 +1,0 @@
-spring:
-  cloud:
-    config:
-      name: manager
-      profile: dev
-      label: master
-      uri: http://10.0.2.15:12000

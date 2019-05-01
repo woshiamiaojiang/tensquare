@@ -46,7 +46,3 @@ hs_err_pid*
 /tensquare_spit/target/
 /tensquare_user/target/
 /tensquare_web/target/
-/tensquare_manager/target/
-/tensquare_user/target/
-/tensquare_web/target/
-/tensquare_config/target/

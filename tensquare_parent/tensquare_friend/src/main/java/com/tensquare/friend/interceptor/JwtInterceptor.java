@@ -17,19 +17,21 @@ public class JwtInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //无论如何都放行。具体能不能操作还是在具体的操作中去判断。
-        //拦截器只是负责把请求头中包含token的令牌进行解析。
+        // 无论如何都放行。具体能不能操作还是在具体的操作中去判断。
+        // 拦截器只是负责把请求头中包含token的令牌进行解析。
         String header = request.getHeader("Authorization");
-        if(header != null && !"".equals(header)) {
-            if(header.startsWith("Bearer ")) {
+        if (header != null && !"".equals(header)) {
+            if (header.startsWith("Bearer ")) {
                 String token = header.substring(7);
                 try {
                     Claims claims = jwtUtil.parseJWT(token);
                     String roles = (String) claims.get("roles");
-                    if(roles != null && roles.equals("admin"))
+                    if (roles != null && "admin".equals(roles)) {
                         request.setAttribute("claims_admin", claims);
-                    if(roles != null && roles.equals("user"))
+                    }
+                    if (roles != null && "user".equals(roles)) {
                         request.setAttribute("claims_user", claims);
+                    }
                 } catch (Exception e) {
                     throw new RuntimeException("令牌不正确 !");
                 }
